@@ -60,7 +60,7 @@
                     </div>
 
                     <!-- lista delle chat -->
-                    <div class="flex-grow-1 overflow-auto " >
+                    <div class="overflow-auto " >
                         <div class="overflow-auto">
                             <div v-for="(items, i) in listaContatti"class="border d-flex align-items-center flex-shrink-0">
                                 <div class="container-avatar">
@@ -72,8 +72,8 @@
                     </div>
                     
                 </div>
-                <div class="col-8 d-flex flex-column">
-                    <div class="border d-flex align-items-center flex-shrink-0">
+                <div class="col-8 d-flex flex-column overflow-hidden h-100 ">
+                    <div class="border d-flex align-items-center ">
                         <div class="container-avatar">
                             <img src="../img/avatar_1.jpg" alt="">
                         </div>
@@ -92,7 +92,9 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
-                    <div class="flex-grow-1 bg-whatsapp d-flex flex-column">
+                    
+                    <!-- chat -->
+                    <div class="h-100 bg-whatsapp d-flex flex-column overflow-auto">
                         <div class="message-send p-2 d-flex justify-content-end">
                             <div class="text-send bg-success d-inline-block p-1 ">ciao</div>
                         </div>
