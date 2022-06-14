@@ -44,3 +44,7 @@
 .message-send{
     align-items: flex-start
 }
+
+.row > div{
+    background-color: #fff;
+}

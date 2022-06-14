@@ -12,14 +12,13 @@
     <title>Document</title>
     
 </head>
-<body>
+<body >
     <div class="bg-head-app">
-
     </div>
     <div id="app">
-        <div class="container p-0 over-flow-hidden ">
-            <div class="row g-0 d-flex flex-grow-1 p-0">
-                <div class="col-4 d-flex flex-column">
+        <div class="container p-0 overflow-hidden">
+            <div class="row g-0 d-flex h-100 p-0 overflow-hidden">
+                <div class="col-4 d-flex flex-column h-100 overflow-hidden ">
 
                     <div class="border d-flex align-items-center flex-shrink-0">
                         <div class="container-avatar">
@@ -61,12 +60,14 @@
                     </div>
 
                     <!-- lista delle chat -->
-                    <div class="flex-grow-1 over-flow-auto" >
-                        <div v-for="(items, i) in listaContatti"class="border d-flex align-items-center flex-shrink-0">
-                            <div class="container-avatar">
-                                <img :src="imgContatto" alt="">
+                    <div class="flex-grow-1 overflow-auto " >
+                        <div class="overflow-auto">
+                            <div v-for="(items, i) in listaContatti"class="border d-flex align-items-center flex-shrink-0">
+                                <div class="container-avatar">
+                                    <img :src="imgContatto" alt="">
+                                </div>
+                                <span class="flex-grow-1">{{items.name}}</span>
                             </div>
-                            <span class="flex-grow-1">{{items.name}}</span>
                         </div>
                     </div>
                     
