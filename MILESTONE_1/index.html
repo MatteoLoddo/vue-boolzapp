@@ -64,7 +64,7 @@
                         <div class="overflow-auto">
                             <div v-for="(items, i) in listaContatti"class="border d-flex align-items-center flex-shrink-0">
                                 <div class="container-avatar">
-                                    <img :src="imgContatto" alt="">
+                                    <img :src="`../img/avatar${items.avatar}.jpg`" alt="">
                                 </div>
                                 <span class="flex-grow-1">{{items.name}}</span>
                             </div>
