@@ -172,7 +172,6 @@ const appVue = new Vue({
     data:{
         listaContatti: contatti,
 
-        imgContatto: "../img/avatar" +  contatti[0].avatar +  ".jpg",
     },
     methods:{
 
