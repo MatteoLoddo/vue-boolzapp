@@ -206,7 +206,8 @@ new Vue({
                 message: this.newMessage,
                 status: "sent",
             })
-        }
+            this.newMessage = ""
+        },
     },
 
     

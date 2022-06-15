@@ -118,7 +118,7 @@
                     </div>
                     <!-- input text chat -->
                     <div>
-                        <input v-model="newMessage"class="w-100" type="text">
+                        <input @keyup.enter="addMessage()" v-model="newMessage"class="w-100" type="text">
                         <button @click="addMessage()" >send</button>
                     </div>
                 </div>
