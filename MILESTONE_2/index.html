@@ -63,7 +63,7 @@
 
                     <!-- lista delle chat -->
                     <div class="overflow-auto">
-                        <div v-for="(items, i) in listaContatti"class="border d-flex align-items-center flex-shrink-0 p-1">
+                        <div v-for="(items, i) in listaContatti"class="border d-flex align-items-center flex-shrink-0 p-1" @click="userActive(i)">
                             <div class="container-avatar m-1 ">
                                 <img :src="`../img/avatar${items.avatar}.jpg`"  alt="">
                             </div>
@@ -83,10 +83,10 @@
                     <div class="border d-flex align-items-center ">
 
                         <div class="container-avatar m-1">
-                            <img src="../img/avatar_1.jpg" alt="">
+                            <img :src="`../img/avatar${currentUser.avatar}.jpg`" alt="">
                         </div>
                         <div class="flex-grow-1">
-                            <span class=" d-block">Michele</span>
+                            <span class=" d-block">{{currentUser.name}}</span>
                             <span>ultimo messaggio inviato</span>
                         </div>
                         
@@ -105,17 +105,21 @@
                     
                     <!-- chat -->
                     <div class="h-100 bg-whatsapp d-flex flex-column overflow-auto">
-                        <div class="message-send p-2 d-flex justify-content-end">
-                            <div class="text-send bg-success d-inline-block p-1 ">ciao</div>
-                        </div>
 
-                        <div class="message-received p-2 ">
-                            <div class="text-send bg-danger d-inline-block p-1 ">ciao</div>
+                        <!-- <div class="message-send p-2 d-flex justify-content-end">
+                            <div class="text-send bg-success d-inline-block p-1 "></div>
+                        </div> -->
+
+                        <div v-for="(message , i) in messageList()"class=" p-2 d-flex " :class="{'justify-content-end' : message.status === 'sent' , 'justify-content-start' : message.status === 'received'}">
+                            <div class="p-1 message-card-text" :class="{ 'message-sent' : message.status === 'sent' , 'message-received' : message.status === 'received'} ">{{message.message}}
+                                <span>{{message.date}}</span>
+                            </div>
                         </div>
                     </div>
                     <!-- input text chat -->
                     <div>
-                        <input class="w-100" type="text">
+                        <input v-model="newMessage"class="w-100" type="text">
+                        <button @click="addMessage()" >send</button>
                     </div>
                 </div>
             </div>
