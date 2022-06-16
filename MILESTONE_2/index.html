@@ -63,7 +63,7 @@
 
                     <!-- lista delle chat -->
                     <div class="overflow-auto">
-                        <div v-for="(items, i) in listaContatti"class="border d-flex align-items-center flex-shrink-0 p-1" @click="userActive(items)">
+                        <div v-for="(items, i) in listaCercati"class="border d-flex align-items-center flex-shrink-0 p-1" @click="userActive(items)">
                             <span v-if="items.visible === true">
                                 <div class="container-avatar m-1 ">
                                     <img :src="`../img/avatar${items.avatar}.jpg`"  alt="">

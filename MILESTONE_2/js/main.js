@@ -175,6 +175,7 @@ new Vue({
         newMessage: '',
         contactActive: 'undefined',
         search:'',
+        listaCercati:''
     },
 
     methods:{
@@ -182,7 +183,7 @@ new Vue({
         userActive(currentContact){
             this.contactActive = currentContact
         },
-        
+
         addMessage(){
             this.contactActive.messages.push({
                 date: "10/01/2020 15:51:00",
@@ -202,13 +203,9 @@ new Vue({
 
         contactSearch(){
 
-            contatti.filter(function (element){
-            const utenteCercato = this.search
-            
-            if (element.name.includes(utenteCercato)){
-                element.visible = true
-            }else element.visible = false
+            this.listaCercati = this.listaContatti.filter((element)=>{
 
+            return element.name.includes(this.search)
             
 
             })
