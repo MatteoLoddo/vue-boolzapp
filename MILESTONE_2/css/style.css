@@ -46,16 +46,25 @@
 }
 
 .message-card-text span{
+    padding: 0.5rem;
     font-size: 0.6rem;
 }
 .message-sent{
-    background-color: green;
+    background-color: #D5F9BA;
 }
 
 .message-received{
-    background-color: red;
+    background-color: #fff;
 }
 
 .row > div{
     background-color: #fff;
+}
+
+.fa-solid{
+    color: #5d5d5d;
+}
+
+.container-notifiche {
+    background-color: #8EDAFC;
 }

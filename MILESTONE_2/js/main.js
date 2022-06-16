@@ -173,15 +173,14 @@ new Vue({
         index: 0,
         currentUser: contatti[0],
         newMessage: '',
+        inputSearch:'',
+        contactActive: 'undefined',
     },
 
     methods:{
 
-        userActive(indice) {
-            this.index = indice;
-            this.currentUser = this.listaContatti[indice];
-            console.log(this.currentUser);
-            console.log(this.index);
+        userActive(currentContact){
+            this.contactActive = currentContact
         },
 
 
@@ -200,14 +199,22 @@ new Vue({
             return everyMessages
         },
         addMessage(){
-
-            this.currentUser.messages.push({
+            this.contactActive.messages.push({
                 date: "10/01/2020 15:51:00",
                 message: this.newMessage,
                 status: "sent",
             })
             this.newMessage = ""
+
+            setTimeout(()=>{
+                this.contactActive.messages.push({
+                    date: 'Adesso',
+                    message: 'Ok',
+                    status: "received"
+                })
+            }, 1000)
         },
+
     },
 
     

@@ -43,7 +43,7 @@
                         
                     </div>
                     <!-- notifiche -->
-                    <div class="border d-flex align-items-center flex-shrink-0 p-1">
+                    <div class=" container-notifiche border d-flex align-items-center flex-shrink-0 p-1">
                         <div class="container-svg d-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M186 120.5C209 85.38 245.4 59.84 288 51.2V32C288 14.33 302.3 .0003 320 .0003C337.7 .0003 352 14.33 352 32V51.2C425 66.03 480 130.6 480 208V226.8C480 273.9 497.3 319.2 528.5 354.4L535.9 362.7C544.3 372.2 546.4 385.6 541.2 397.1C540.1 397.5 540.8 397.1 540.6 398.4L630.8 469.1C641.2 477.3 643.1 492.4 634.9 502.8C626.7 513.2 611.6 515.1 601.2 506.9L9.196 42.89C-1.236 34.71-3.065 19.63 5.112 9.196C13.29-1.236 28.37-3.065 38.81 5.112L186 120.5zM160 226.8V222.1L406.2 416H128C115.4 416 103.1 408.6 98.81 397.1C93.65 385.6 95.71 372.2 104.1 362.7L111.5 354.4C142.7 319.2 160 273.9 160 226.8V226.8zM320 512C303 512 286.7 505.3 274.7 493.3C262.7 481.3 256 464.1 256 448H384C384 464.1 377.3 481.3 365.3 493.3C353.3 505.3 336.1 512 320 512z"/></svg>
                         </div>
@@ -63,13 +63,15 @@
 
                     <!-- lista delle chat -->
                     <div class="overflow-auto">
-                        <div v-for="(items, i) in listaContatti"class="border d-flex align-items-center flex-shrink-0 p-1" @click="userActive(i)">
+                        
+                        <div v-for="(items, i) in listaContatti"class="border d-flex align-items-center flex-shrink-0 p-1" @click="userActive(items)">
                             <div class="container-avatar m-1 ">
                                 <img :src="`../img/avatar${items.avatar}.jpg`"  alt="">
                             </div>
                             <div>
                                 <span class="flex-grow-1 d-block"><strong>{{items.name}}</strong></span>
                                 <span>ultimo messaggio inviato</span>
+                                <span>12:00</span>
                             </div>
                         </div>
                     </div>
@@ -83,10 +85,10 @@
                     <div class="border d-flex align-items-center ">
 
                         <div class="container-avatar m-1">
-                            <img :src="`../img/avatar${currentUser.avatar}.jpg`" alt="">
+                            <img :src="`../img/avatar${contactActive.avatar}.jpg`" alt="">
                         </div>
                         <div class="flex-grow-1">
-                            <span class=" d-block">{{currentUser.name}}</span>
+                            <span class=" d-block">{{contactActive.name}}</span>
                             <span>ultimo messaggio inviato</span>
                         </div>
                         
@@ -109,10 +111,11 @@
                         <!-- <div class="message-send p-2 d-flex justify-content-end">
                             <div class="text-send bg-success d-inline-block p-1 "></div>
                         </div> -->
-
-                        <div v-for="(message , i) in messageList()"class=" p-2 d-flex " :class="{'justify-content-end' : message.status === 'sent' , 'justify-content-start' : message.status === 'received'}">
-                            <div class="p-1 message-card-text" :class="{ 'message-sent' : message.status === 'sent' , 'message-received' : message.status === 'received'} ">{{message.message}}
-                                <span>{{message.date}}</span>
+                        <div v-if="contactActive !== undefined ">
+                            <div v-for="(message , i) in contactActive.messages"class=" p-2 d-flex " :class="{'justify-content-end' : message.status === 'sent' , 'justify-content-start' : message.status === 'received'}">
+                                <div class="p-1 message-card-text" :class="{ 'message-sent' : message.status === 'sent' , 'message-received' : message.status === 'received'} ">{{message.message}}
+                                    <span>{{message.date}}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
