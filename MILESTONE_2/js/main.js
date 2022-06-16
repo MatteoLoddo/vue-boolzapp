@@ -173,8 +173,8 @@ new Vue({
         index: 0,
         currentUser: contatti[0],
         newMessage: '',
-        inputSearch:'',
         contactActive: 'undefined',
+        search:'',
     },
 
     methods:{
@@ -182,22 +182,7 @@ new Vue({
         userActive(currentContact){
             this.contactActive = currentContact
         },
-
-
-// funzione per creare un array attraverso il filter e inserire ogni messaggio
-        messageList(){
-            const listMessage = this.listaContatti.filter((items, i) => {
-                return this.index === i
-            })
-            let everyMessages = listMessage.map((items) =>{
-                return items.messages
-            })
-            everyMessages = everyMessages[0].map((items, i)=>{
-                return items
-
-            })
-            return everyMessages
-        },
+        
         addMessage(){
             this.contactActive.messages.push({
                 date: "10/01/2020 15:51:00",
@@ -215,7 +200,25 @@ new Vue({
             }, 1000)
         },
 
-    },
+        contactSearch(){
+
+            contatti.filter(function (element){
+            const utenteCercato = this.search
+            
+            if (element.name.includes(utenteCercato)){
+                element.visible = true
+            }else element.visible = false
+
+            
+
+            })
+            },
+            
+
+
+            },
+
+    })
 
     
-})
+
