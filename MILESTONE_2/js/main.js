@@ -205,7 +205,8 @@ new Vue({
 
             this.listaCercati = this.listaContatti.filter((element)=>{
 
-            return element.name.includes(this.search)
+            return element.name.toLowerCase().includes(this.search.toLowerCase())
+            console.log(element.name);
             
 
             })
